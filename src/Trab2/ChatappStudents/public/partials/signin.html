@@ -1,0 +1,51 @@
+<div>
+  <nav data-topbar class="top-bar">
+	  <ul class="title-area">
+	  	<li class="name">
+	  		<h1><a href="/">RIT II {{view}}</a>
+	  		</h1>
+	  	</li>
+	  	<li class="toggle-topbar menu-icon">
+	  		<a href="#"><span>menu</span>
+	  		</a>
+	  	</li>
+	  </ul><section class="top-bar-section">
+	  <ul class="right">
+	  	<li>
+	  		<a href="#/register">Register</a>
+	  	</li>
+	  </ul>
+	</section>
+  </nav>
+    <div>
+     <div class= "panel">
+      <form>
+       <div class= "row">
+         <div class="medium-4 small-centered columns">
+           <label>User Name
+             <input ng-model="user.username" type="text" name="user" placeholder="Username" />
+           </label>
+           <label>Password
+             <input ng-model="user.password" type="password" name="pass" placeholder="Password" />
+           </label>
+         </div>
+       </div>
+      </form>
+      <div class= "row">
+        <div class="medium-7 small-centered columns">
+          <a class= "button [tiny small large]" ng-click="submit()" >sign in</a>
+          <a class= "button [tiny small large]" href="#/register">New? Register Here</a>
+          <button class="facebook"  ng-click="login()"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="#3D5A98" d="M30.2,32c1,0,1.8-0.8,1.8-1.8V1.8c0-1-0.8-1.8-1.8-1.8H1.8C0.8,0,0,0.8,0,1.8v28.5
+           c0,1,0.8,1.8,1.8,1.8H30.2z"></path><path fill="#FFFFFF" d="M22.1,32V19.6h4.2l0.6-4.8h-4.8v-3.1c0-1.4,0.4-2.4,2.4-2.4l2.6,0V5c-0.4-0.1-2-0.2-3.7-0.2
+           c-3.7,0-6.2,2.3-6.2,6.4v3.6h-4.2v4.8h4.2V32H22.1z"></path></svg> Register with Facebook </button>
+
+        <div ng-show="isError" data-alert class="alert-box warning round">
+          {{error}}
+          <a href="#" class="close">&times;</a>
+        </div>
+        </div>
+      </div>
+
+     </div>
+    </div>
+</div>

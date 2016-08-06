@@ -1,0 +1,66 @@
+<div>
+
+  <nav data-topbar class="top-bar">
+	  <ul class="title-area">
+	  	<li class="name">
+	  		<h1><a href="/">RIT II {{view}}</a>
+	  		</h1>
+	  	</li>
+	  	<li class="toggle-topbar menu-icon">
+	  		<a href="#"><span>menu</span>
+	  		</a>
+	  	</li>
+	  </ul><section class="top-bar-section">
+	  <ul class="right">
+	  	<li>
+	  		<a href="#/signin">Sign in</a>
+	  	</li>
+	  </ul>
+	</section>
+  </nav>
+    <div>
+     <div class= "panel">
+      <form>
+       <div class= "row">
+         <div class="medium-4 small-centered columns">
+           <label>Name
+             <input ng-model="user.name" type="text" name="name" placeholder="Name" ng-init="user.name=name" >
+           </label>
+           <label>Address
+             <input ng-model="user.address" type="text" name="address" placeholder=" Lisboa, PT "  ng-init="user.address=address" />
+           </label>
+           <label>e-mail
+             <input ng-model="user.email" type="email" name="mail" placeholder="john.doe@somesite.com" ng-init="user.email=email" />
+         </label>
+             <label>Avatar
+                 <input ng-model="user.avatar" type="radio" name="avatar" value=1 />
+                 <img src="/img/fd02.png" width="35" height="35">
+                 <input ng-model="user.avatar" type="radio" name="avatar" value=2 />
+                 <img src="/img/i02.png" width="35" height="35">
+                 <input ng-model="user.avatar" type="radio" name="avatar" value=3 />
+                 <img src="/img/g01.png" width="35" height="35">
+             </label>
+           <label>User Name
+             <input ng-model="user.username" type="text" name="user" placeholder="Username"  ng-init="user.username=userface" />
+           </label>
+           <label>Password
+             <input ng-model="user.password" type="password" name="pass" placeholder="Password" />
+           </label>
+
+         </div>
+       </div>
+      </form>
+      <div class= "row">
+        <div class="medium-4 small-centered columns">
+          <a class= "button [tiny small large]" ng-click="register()" >Submit</a>
+        <div ng-show="isError" data-alert class="alert-box warning round">
+          {{error}}
+          <a href="#/register" class="close">&times;</a>
+        </div>
+        </div>
+      </div>
+
+     </div>
+    </div>
+
+</div>

@@ -1,0 +1,117 @@
+<div>
+  <nav data-topbar class="top-bar">
+	  <ul class="title-area">
+	  	<li class="name">
+	  		<h1> <a href="#/listonline">RIT II {{view}}</a>
+	  		</h1>
+	  	</li>
+	  	<li class="toggle-topbar menu-icon">
+	  		<a href="#"><span>menu</span>
+	  		</a>
+	  	</li>
+	  </ul><section class="top-bar-section">
+	  <ul class="right">
+	  	<li>
+	  		<a ng-click="logout()" >Logout</a>
+	  	</li>
+	  </ul>
+      <ul class="float_center">
+          <li>
+              <img  ng-show="avatar==1" src="/img/fd02.png" width="35" height="35">
+              <img  ng-show="avatar==3" src="/img/g01.png" width="35" height="35">
+              <img  ng-show="avatar==2" src="/img/i02.png" width="35" height="35">
+          </li>
+      </ul>
+	</section>
+  </nav>
+   <div>
+     <div class= "panel">
+       <div class= "row">
+
+         <div class="medium-5 columns">
+           <table>
+             <thead>
+             <div ng-show="showfAccept">
+                 <label>{{friend}} Accepted your request
+                     <a ng-click="ok()" >OK</a>
+                 </label>
+             </div>
+             <div ng-show="showfReject">
+                 <label>{{friend}} Rejected your request
+                     <a ng-click="ok()" >OK</a>
+                 </label>
+             </div>
+             <div ng-show="shownoADD">
+                 <label>{{friend}} is already in your friendlist
+                     <a ng-click="ok()" >OK</a>
+                 </label>
+             </div>
+               <th> {{UserName}} located in {{Address}}. Please click in a user to start a live session  </th>
+ 		     </thead>
+ 	         <tbody>
+ 		       <tr ng-repeat= "user in users" >
+ 		         <td ng-click = "talkto(user)"> {{user}} </td>
+                 <td ng-click ="addfriend(user)">   Add Friend</td>
+                 <td ng-click ="deletefriend(user)">   Delete Friend</td>
+ 		       </tr>
+ 		     </tbody>
+ 		   </table>
+             <div class="medium-10 columns">
+                 <table>
+                     <thead>
+                     <th> Friendlist:  </th>
+                     </thead>
+                     <tbody>
+                     <tr ng-repeat= "friend in friendlist" >
+                         <td ng-show="friend.logged==true && friend.avatar==1 ">  <img  src="/img/fd02.png" width="35" height="35"> {{friend.name}} <img  border="0" alt="green" src="/img/greendot.gif" width="20" height="20"> </td>
+                         <td ng-show="friend.logged==true &&  friend.avatar==2">  <img  src="/img/i02.png" width="35" height="35"> {{friend.name}} <img  border="0" alt="green" src="/img/greendot.gif" width="20" height="20"> </td>
+                         <td ng-show="friend.logged==true && friend.avatar==3 ">  <img  src="/img/g01.png" width="35" height="35"> {{friend.name}} <img  border="0" alt="green" src="/img/greendot.gif" width="20" height="20"> </td>
+
+                         <td ng-show="friend.logged==false && friend.avatar==1"> <img  src="/img/fd02.png " width="35" height="35"> {{friend.name}} <img  border="0" alt="green" src="/img/reddot.gif" width="20" height="20"> </td>
+                         <td ng-show="friend.logged==false && friend.avatar==2"> <img  src="/img/i02.png" width="35" height="35"> {{friend.name}} <img  border="0" alt="green" src="/img/reddot.gif" width="20" height="20"> </td>
+                         <td ng-show="friend.logged==false && friend.avatar==3"> <img  src="/img/g01.png" width="35" height="35">  {{friend.name}} <img  border="0" alt="green" src="/img/reddot.gif" width="20" height="20"> </td>
+
+                     </tbody>
+                 </table>
+                 <form ng-submit="sendMessage_to_group()">
+                     <input ng-model="messagetoall"/>
+                     <input type="submit", value="Send"/>
+                 </form>
+             </div>
+         </div>
+         <div class="medium-6 columns">
+             <div class="panel" style="height: 200px; overflow: auto;">
+                <p ng-repeat="message in messages">
+                {{message.user}}:{{message.text}}
+                 <p ng-show="iswriting" style= "font-style: italic; color: grey">
+                    <img  src="/img/3points.gif " width="35" height="35">  {{talkingto}} is writing
+
+             </div>
+             </p>
+             <div ng-show="showchat">
+               <form ng-submit="sendMessage()">
+                 <label>Chat session with {{talkingto}}
+                 <input ng-model="message"/>
+                 <span ng-if="message" ng-init="isw()">
+
+                 </span>
+                 <input type="submit", value="Send"/>
+                 </label>
+               </form>
+               <a ng-click="closeConnection()" >Close</a>
+                 <a ng-click= "google()">
+                     <img border="0" alt="google" src="/img/google_maps.png" width="35" height="35">
+                 </a>
+             </div>
+             <div ng-show="showfrequest">
+                 <label>{{friend}} requested friendship. Accept?
+                     <a class= "button [tiny small large]" ng-click="emitYes(friend)" >Yes</a>
+                     <a class= "button [tiny small large]" ng-click="emitNo(friend)" >No</a>
+                 </label>
+             </div>
+
+         </div>
+     </div>
+     </div>
+   </div>
+</div>
